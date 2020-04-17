@@ -7,7 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -19,6 +21,7 @@ public class DriveBase extends SubsystemBase {
                       rightMaster, rightSlave1, rightSlave2;
   
   private Constants constants = new Constants();
+  private TalonFXConfiguration fxConfig;
 
   /**
    * Creates a new Drivebase.
@@ -40,16 +43,10 @@ public class DriveBase extends SubsystemBase {
 		rightSlave2.configFactoryDefault();
 
 		// PID
-		// fxConfig = new TalonFXConfiguration();
-		// fxConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.IntegratedSensor;
-		// fxConfig.neutralDeadband = .001;
-		// fxConfig.slot0.kF = Robot.shuffleBoard.driveFXPidF.getDouble(0);
-		// fxConfig.slot0.kP = Robot.shuffleBoard.driveFXPidP.getDouble(0);
-		// fxConfig.slot0.kI = Robot.shuffleBoard.driveFXPidI.getDouble(0);
-		// fxConfig.slot0.kD = Robot.shuffleBoard.driveFXPidD.getDouble(0);
-		// fxConfig.slot0.closedLoopPeakOutput = 1;
-		// fxConfig.openloopRamp = .5;
-
+		fxConfig = new TalonFXConfiguration();
+		fxConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.IntegratedSensor;
+		fxConfig.slot0.closedLoopPeakOutput = 1;
+		fxConfig.openloopRamp = .5;
 
 		// rightMaster.configAllSettings(fxConfig);
 		// leftMaster.configAllSettings(fxConfig);
