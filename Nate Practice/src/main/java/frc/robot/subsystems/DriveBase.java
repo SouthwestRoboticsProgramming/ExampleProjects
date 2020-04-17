@@ -27,7 +27,7 @@ public class DriveBase extends SubsystemBase {
    * Creates a new Drivebase.
    */
   public DriveBase() {
-    leftMaster = new WPI_TalonFX(constants.leftPort1);
+    	leftMaster = new WPI_TalonFX(constants.leftPort1);
 		leftSlave1 = new WPI_TalonFX(constants.leftPort2);
 		leftSlave2 = new WPI_TalonFX(constants.leftPort3);
 		rightMaster = new WPI_TalonFX(constants.rightPort1);
@@ -42,14 +42,14 @@ public class DriveBase extends SubsystemBase {
 		rightSlave1.configFactoryDefault();
 		rightSlave2.configFactoryDefault();
 
-		// PID
+		// FxConfig
 		fxConfig = new TalonFXConfiguration();
 		fxConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.IntegratedSensor;
 		fxConfig.slot0.closedLoopPeakOutput = 1;
-		fxConfig.openloopRamp = .5;
+		fxConfig.openloopRamp = 1;
 
-		// rightMaster.configAllSettings(fxConfig);
-		// leftMaster.configAllSettings(fxConfig);
+		rightMaster.configAllSettings(fxConfig);
+		leftMaster.configAllSettings(fxConfig);
 		
 		// LEFT MASTER
 		leftMaster.setInverted(true);
@@ -70,6 +70,20 @@ public class DriveBase extends SubsystemBase {
 		rightSlave2.follow(rightMaster);
   }
 
+  /**
+   * @return the leftMaster
+   */
+  public WPI_TalonFX getLeftMaster() {
+	  return leftMaster;
+  }
+
+  /**
+   * @return the rightMaster
+   */
+  public WPI_TalonFX getRightMaster() {
+	  return rightMaster;
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
