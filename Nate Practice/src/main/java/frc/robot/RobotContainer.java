@@ -66,11 +66,11 @@ public class RobotContainer {
   }
 
   public double getDrive() {
-    return xbox.getRawAxis(1);
+    return -xbox.getRawAxis(1);
   }
 
   public double getTurn() {
-    return xbox.getRawAxis(0);
+    return -xbox.getRawAxis(0);
   }
 
 

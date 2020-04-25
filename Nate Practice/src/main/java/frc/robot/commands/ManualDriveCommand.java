@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
 import frc.robot.subsystems.DriveBase;
 
 public class ManualDriveCommand extends CommandBase {
@@ -28,12 +29,15 @@ public class ManualDriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
+    double turn = Robot.robotContainer.getTurn();
+    double drive = Robot.robotContainer.getDrive();
+    driveBase.driveMotors(drive-turn, drive+turn);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+
   }
 
   // Returns true when the command should end.

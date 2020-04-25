@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFXConfiguration;
@@ -84,6 +85,14 @@ public class DriveBase extends SubsystemBase {
 	  return rightMaster;
   }
   
+  /**
+   * Controls motors with percentoutput
+   */
+  public void driveMotors(double left, double right) {
+	getLeftMaster().set(ControlMode.PercentOutput, left);
+	getRightMaster().set(ControlMode.PercentOutput, right);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
