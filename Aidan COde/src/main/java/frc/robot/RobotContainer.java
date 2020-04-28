@@ -30,7 +30,9 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final ManualDriveCommand manualDriveCommand = new ManualDriveCommand(driveBase);
 
-private final Joystick xbox = new Joystick(0);
+ 
+
+  private final Joystick xbox = new Joystick(0);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -47,12 +49,12 @@ private final Joystick xbox = new Joystick(0);
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
   }
-     public void startTeleopCommands() {
-       manualDriveCommand.schedule();
-     }
 
+  public void startTeleopCommands() {
+    manualDriveCommand.schedule();
+  }
+ 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
@@ -63,14 +65,13 @@ private final Joystick xbox = new Joystick(0);
     return m_autoCommand;
   }
 
-  public double getDrive(){
-    return xbox.getRawAxis(1);
+  public double getDrive() {
+    return -xbox.getRawAxis(1);
   }
 
-  public double getTurn(){
-    return xbox.getRawAxis(0);
+  public double getTurn() {
+    return -xbox.getRawAxis(0);
   }
-
 
 
 }

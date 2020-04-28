@@ -16,6 +16,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
     //Dive can numbers
     public final int leftPort1 = 4,
                     leftPort2 = 5,
@@ -23,4 +24,5 @@ public final class Constants {
                     rightPort1 = 1,
                     rightPort2 = 2,
                     rightPort3 = 3;
+
 }
