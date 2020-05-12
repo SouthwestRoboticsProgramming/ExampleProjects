@@ -10,9 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.subsystems.DriveBase;
+import frc.lib.CheesyDrive;
 
 public class ManualDriveCommand extends CommandBase {
   private DriveBase driveBase;
+  private CheesyDrive cheesyDrive = new CheesyDrive();
   /**
    * Creates a new ManualDriveCommand.
    */
@@ -29,9 +31,22 @@ public class ManualDriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+  
     double turn = Robot.robotContainer.getTurn();
     double drive = Robot.robotContainer.getDrive();
-    driveBase.driveMotors(drive-turn, drive+turn);
+    double driveSpeed = 1;
+
+    // ARCADE DRIVE
+    // driveBase.driveMotors(drive-turn, drive+turn);
+
+    // CHEEZY DRIVE
+      // double sencitivity = Robot.shuffleBoard.driveCheezyLSensitivity.getDouble(.6);
+      double sencitivity = .6;
+      var signal = cheesyDrive.cheesyDrive(drive, turn, false, false, sencitivity);
+      double leftPow = signal.getLeft();
+      double rightPow = signal.getRight();
+
+      driveBase.driveMotors(leftPow*driveSpeed, rightPow*driveSpeed);
   }
 
   // Called once the command ends or is interrupted.
