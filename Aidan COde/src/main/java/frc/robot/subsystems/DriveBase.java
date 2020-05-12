@@ -46,8 +46,8 @@ public class DriveBase extends SubsystemBase {
 		// FxConfig
 		fxConfig = new TalonFXConfiguration();
 		fxConfig.primaryPID.selectedFeedbackSensor = FeedbackDevice.IntegratedSensor;
-		fxConfig.slot0.closedLoopPeakOutput = .1;
-		fxConfig.openloopRamp = .001;
+		fxConfig.slot0.closedLoopPeakOutput = 1;
+		fxConfig.openloopRamp = 1;
 
 		rightMaster.configAllSettings(fxConfig);
 		leftMaster.configAllSettings(fxConfig);

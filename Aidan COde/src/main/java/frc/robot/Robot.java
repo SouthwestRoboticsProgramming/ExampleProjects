@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.feedbackDevices.ShuffleBoard;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -22,7 +21,6 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   public static RobotContainer robotContainer;
-  public static ShuffleBoard shuffleBoard = new ShuffleBoard();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -30,7 +28,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    // Instantiate our RobotContainer. This will perform all our button bindings, and put our
+    // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
   }

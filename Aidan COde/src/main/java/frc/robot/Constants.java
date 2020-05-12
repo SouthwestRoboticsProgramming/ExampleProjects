@@ -19,10 +19,10 @@ public final class Constants {
 
     //Dive can numbers
     public final int leftPort1 = 4,
-                     leftPort2 = 5,
-                     leftPort3 = 6,
-                     rightPort1 = 1,
-                     rightPort2 = 2,
-                     rightPort3 = 3;
+                    leftPort2 = 5,
+                    leftPort3 = 6,
+                    rightPort1 = 1,
+                    rightPort2 = 2,
+                    rightPort3 = 3;
 
 }
