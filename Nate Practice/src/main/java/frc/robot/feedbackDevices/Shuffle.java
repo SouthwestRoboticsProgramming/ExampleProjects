@@ -15,15 +15,17 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 /**
  * Add your docs here.
  */
-public class ShuffleBoard {
-
+public class Shuffle {
 
     public ShuffleboardTab GamePlay = Shuffleboard.getTab("GamePlay");
     public ShuffleboardTab Tune = Shuffleboard.getTab("Tune");
+        private ShuffleboardLayout driveTune = Tune.getLayout("driveTune", BuiltInLayouts.kList);
+            public NetworkTableEntry driveType = driveTune.addPersistent("driveType", "a").getEntry();
+
     public ShuffleboardTab Debug = Shuffleboard.getTab("Debug");
     public ShuffleboardTab Auto = Shuffleboard.getTab("Auto");
         
-    public ShuffleBoard() {
+    public Shuffle() {
 
     }
 
